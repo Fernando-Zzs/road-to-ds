@@ -724,7 +724,9 @@ MSRA的Feature Master主要以LBP为例，论述了高纬度特征和验证性�
 
 为了方便MLE（Machine Learning Engineer主要任务是中间三个模块）完成全流程工作，即模型训练、模型可视化、模型服务，Kubeflow利用k8s的容器特性完成这些步骤，部署时也利用Nginx做负载均衡。
 
-![image-20230116113243376](.\images\image-20230116113243376.png)
+<img src=".\images\image-20230116113243376.png" alt="image-20230116112852885" style="zoom:80%;" />
+
+
 
 在训练过程，可以设置PS和Worker的数量实现并行化训练，生成的tf.events和saved_model.pb文件分别用于模型可视化和模型服务。
 
