@@ -176,3 +176,90 @@ sm_model = tf.keras.models.load_model("mnist_model") # 加载SavedModel模型
 
 [用TensorFlow2训练Fashion MNIST数据集的分类问题](.\experts\code_sample\chapter-2)
 
+
+
+## 方案设计篇
+
+### 背景
+
+AI新零售是消费方式的革新，逆向牵引生产变革，掌握数据、了解消费者需求后再生产是基本形态，通过数据和商业逻辑的深度结合，引领消费升级。
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118142518940.png" alt="image-20230118142518940" style="zoom: 80%;" />
+
+在零售行业，AI可以贯穿全流程提供更好的服务，如AR技术模拟穿衣、网购的实时翻译技术等等
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118142636227.png" alt="image-20230118142636227" style="zoom:80%;" />
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118142834989.png" alt="image-20230118142834989" style="zoom:80%;" />
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118142907723.png" alt="image-20230118142907723" style="zoom:80%;" />
+
+### 线下品牌之间的存量竞争
+
+广告位、SKU稽查监管、竞品分析等方面目前都存在人工低效的问题，这些是品牌方的普遍需求
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118143229214.png" alt="image-20230118143229214" style="zoom:67%;" />
+
+对于零售品牌的管理者来说，销售指标完不成、商品易滞销、市场竞争惨烈、无法获取第一手市场信息、海量数据录入、同步不及时、难于做决策等等问题，导致的商机损失高达1000亿美元。
+
+对于消费者来说，商品断货、商品关注不方便等问题也降低了消费的欲望。
+
+### 解决方案
+
+执行线下的门店拍照+稽核抽查+正负反馈对于品牌方来说效率过低，因为抽查比例低、覆盖门店少、人工费用高、全局把握难
+
+利用AI+大数据技术实现品牌管理的智能看板，实现线下零售向数字化平台转型是解决这个问题的长期目标
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118144019526.png" alt="image-20230118144019526" style="zoom:67%;" />
+
+短期目标：自动化陈列审核和促销管理
+
+### 业务落地
+
+#### 第一步：货架数字化
+
+货架、SKU和陈列都可以数字化成为一系列方便管理的item
+
+![image-20230118144624242](C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118144624242.png)
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118144556837.png" alt="image-20230118144556837" style="zoom:80%;" />
+
+#### 第二步：量化销售指标
+
+##### 分销达标
+
+品牌方对于SKU在货架陈列数量、摆放位置、摆放纯度等指标提出要求
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118144927585.png" alt="image-20230118144927585" style="zoom:67%;" />
+
+##### 新品上架陈列稽查
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118204615292.png" alt="image-20230118204615292" style="zoom:50%;" />
+
+##### 陈列激励
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118204646494.png" alt="image-20230118204646494" style="zoom:50%;" />
+
+#### 第三步：设计基于深度学习的AI流水线方案
+
+货架商品检测，先检测出每一个item的位置信息Bbox，再根据训练的模型进行SKU分类
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118204820816.png" alt="image-20230118204820816" style="zoom:50%;" />
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118205005025.png" alt="image-20230118205005025" style="zoom:50%;" />
+
+但此处存在很多难点，例如细分品类无法通过图形进行分辨（如不同口味），需要添加一层细分的分类器；例如规格信息（如净含量等）肉眼都无法识别，需要结合标签具体信息（物体实际高度、宽度等）作为特征训练。
+
+#### 第四步：方案交付——支持在线识别和API调用的AI SaaS
+
+showcase
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118205503068.png" alt="image-20230118205503068" style="zoom:50%;" />
+
+##### 通用物品识别平台架构
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118205550944.png" alt="image-20230118205550944" style="zoom:50%;" />
+
+### 商品识别AI+业务流水线
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118205739376.png" alt="image-20230118205739376" style="zoom: 50%;" />
