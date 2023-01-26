@@ -255,7 +255,7 @@ Series有两个基本属性，index和values（index默认是0，1，2……如�
 
 ## 常见数据清洗函数
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230126204020024.png" alt="image-20230126204020024" style="zoom: 80%;" />
+<img src=".\images\image-20230126204020024.png" alt="image-20230126204020024" style="zoom: 80%;" />
 
 ```python
 # 数据导入导出

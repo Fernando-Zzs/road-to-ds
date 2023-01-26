@@ -8,17 +8,17 @@ TF2.0兼容了python语法，numpy的高维数组、原生keras的分布式、py
 
 动态图特性支持算法工程师动态地编写和调试模型
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230116204542856.png" alt="image-20230116204542856" style="zoom:80%;" />
+<img src=".\images\image-20230116204542856.png" alt="image-20230116204542856" style="zoom:80%;" />
 
 TF Lite用于终端，TF.js用于网页端，TF Quantum用于量化（减小模型规模），TF Extended是TFX端到端解决方案，TF Hub可用于复用预训练模型
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230116204559315.png" alt="image-20230116204559315" style="zoom:80%;" />
+<img src=".\images\image-20230116204559315.png" alt="image-20230116204559315" style="zoom:80%;" />
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230116205610888.png" alt="image-20230116205610888" style="zoom: 50%;" />
+<img src=".\images\image-20230116205610888.png" alt="image-20230116205610888" style="zoom: 50%;" />
 
 ### TensorFlow的核心模块
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230116205712459.png" alt="image-20230116205712459" style="zoom:67%;" />
+<img src=".\images\image-20230116205712459.png" alt="image-20230116205712459" style="zoom:67%;" />
 
 以上模块中，tf.keras、tf.data、tf.distribute和SavedModel是关键
 
@@ -32,41 +32,41 @@ TF Lite用于终端，TF.js用于网页端，TF Quantum用于量化（减小模�
 
 #### tf.data：功能强大的数据管理模块
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230116210247405.png" alt="image-20230116210247405" style="zoom:50%;" />
+<img src=".\images\image-20230116210247405.png" alt="image-20230116210247405" style="zoom:50%;" />
 
 其中，分布式文件系统指的是类似于HDFS的系统，对象存储系统是公有云服务商提供的obs、oss等服务；Python生成器是指大量数据情况下用于流水线性输入数据的模块，TFRecord是一种高性能的数据格式；Shuffle指数据的打乱，py_function是指自定义的python函数，重采样是指数据集不平衡时重新采样的操作
 
 #### tf.distribute：一行实现分布式
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230116210838870.png" alt="image-20230116210838870" style="zoom: 50%;" />
+<img src=".\images\image-20230116210838870.png" alt="image-20230116210838870" style="zoom: 50%;" />
 
 通常选取的策略是MirroredStrategy，一个模型，多个机器并行输入数据进行训练，计算梯度并经过统一汇合收敛
 
 #### SavedModel：生产级的模型格式
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230116211028523.png" alt="image-20230116211028523" style="zoom:50%;" />
+<img src=".\images\image-20230116211028523.png" alt="image-20230116211028523" style="zoom:50%;" />
 
 ###  TensorFlow2  vs   TensorFlow1.x
 
 TensorFlow2在易用性和灵活性上达到平衡
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230116211206319.png" alt="image-20230116211206319" style="zoom:67%;" />
+<img src=".\images\image-20230116211206319.png" alt="image-20230116211206319" style="zoom:67%;" />
 
 工作流图的对比
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230116211430060.png" alt="image-20230116211430060" style="zoom:67%;" />
+<img src=".\images\image-20230116211430060.png" alt="image-20230116211430060" style="zoom:67%;" />
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230116211451598.png" alt="image-20230116211451598" style="zoom: 50%;" />
+<img src=".\images\image-20230116211451598.png" alt="image-20230116211451598" style="zoom: 50%;" />
 
 ### TensorFlow生产级AI方案
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230116211626860.png" alt="image-20230116211626860" style="zoom:50%;" />
+<img src=".\images\image-20230116211626860.png" alt="image-20230116211626860" style="zoom:50%;" />
 
 ### TensorFlow在企业中的实际案例
 
 [腾讯互娱角色识别任务的分布式训练框架](https://mp.weixin.qq.com/s/LRxyvVazRAOR_B0as7ujvg)
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230116211932105.png" alt="image-20230116211932105" style="zoom: 50%;" />
+<img src=".\images\image-20230116211932105.png" alt="image-20230116211932105" style="zoom: 50%;" />
 
 [贝壳找房的推荐算法](https://mp.weixin.qq.com/s/B29wlVM4E3efxCywCy8Xnw)
 
@@ -96,7 +96,7 @@ jupyter lab --config jupyter_config.json
 
 配置文件可以设置好后各处通用（服务器、本地）
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230117100026848.png" alt="image-20230117100026848" style="zoom: 80%;" />
+<img src=".\images\image-20230117100026848.png" alt="image-20230117100026848" style="zoom: 80%;" />
 
 * ip是指任何客户端IP都能连接
 * open_browser: 本地时使用true，服务器时使用false
@@ -108,7 +108,7 @@ jupyter lab --config jupyter_config.json
 
 容器在上层没有什么操作系统的依赖，应用打包后直接可以在容器上运行（免去了GUEST OS和HYPERVISOR这些很重的概念），通过复用底层操作系统本身的OS和DOCKER DAEMON复用操作系统的很多资源
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230117101531211.png" alt="image-20230117101531211" style="zoom:67%;" />
+<img src=".\images\image-20230117101531211.png" alt="image-20230117101531211" style="zoom:67%;" />
 
 ### data模块
 
@@ -172,7 +172,7 @@ sm_model = tf.keras.models.load_model("mnist_model") # 加载SavedModel模型
 
 使用Fashion MNIST数据集和原始MNIST数据集对比，同一个模型的准确率都会下降10%左右，可见训练的难度提高了
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230117171327036.png" alt="image-20230117171327036" style="zoom:50%;" />
+<img src=".\images\image-20230117171327036.png" alt="image-20230117171327036" style="zoom:50%;" />
 
 [用TensorFlow2训练Fashion MNIST数据集的分类问题](.\experts\code_sample\chapter-2)
 
@@ -184,21 +184,21 @@ sm_model = tf.keras.models.load_model("mnist_model") # 加载SavedModel模型
 
 AI新零售是消费方式的革新，逆向牵引生产变革，掌握数据、了解消费者需求后再生产是基本形态，通过数据和商业逻辑的深度结合，引领消费升级。
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118142518940.png" alt="image-20230118142518940" style="zoom: 80%;" />
+<img src=".\images\image-20230118142518940.png" alt="image-20230118142518940" style="zoom: 80%;" />
 
 在零售行业，AI可以贯穿全流程提供更好的服务，如AR技术模拟穿衣、网购的实时翻译技术等等
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118142636227.png" alt="image-20230118142636227" style="zoom:80%;" />
+<img src=".\images\image-20230118142636227.png" alt="image-20230118142636227" style="zoom:80%;" />
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118142834989.png" alt="image-20230118142834989" style="zoom:80%;" />
+<img src=".\images\image-20230118142834989.png" alt="image-20230118142834989" style="zoom:80%;" />
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118142907723.png" alt="image-20230118142907723" style="zoom:80%;" />
+<img src=".\images\image-20230118142907723.png" alt="image-20230118142907723" style="zoom:80%;" />
 
 ### 线下品牌之间的存量竞争
 
 广告位、SKU稽查监管、竞品分析等方面目前都存在人工低效的问题，这些是品牌方的普遍需求
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118143229214.png" alt="image-20230118143229214" style="zoom:67%;" />
+<img src=".\images\image-20230118143229214.png" alt="image-20230118143229214" style="zoom:67%;" />
 
 对于零售品牌的管理者来说，销售指标完不成、商品易滞销、市场竞争惨烈、无法获取第一手市场信息、海量数据录入、同步不及时、难于做决策等等问题，导致的商机损失高达1000亿美元。
 
@@ -210,7 +210,7 @@ AI新零售是消费方式的革新，逆向牵引生产变革，掌握数据、
 
 利用AI+大数据技术实现品牌管理的智能看板，实现线下零售向数字化平台转型是解决这个问题的长期目标
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118144019526.png" alt="image-20230118144019526" style="zoom:67%;" />
+<img src=".\images\image-20230118144019526.png" alt="image-20230118144019526" style="zoom:67%;" />
 
 短期目标：自动化陈列审核和促销管理
 
@@ -220,9 +220,9 @@ AI新零售是消费方式的革新，逆向牵引生产变革，掌握数据、
 
 货架、SKU和陈列都可以数字化成为一系列方便管理的item
 
-![image-20230118144624242](C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118144624242.png)
+![image-20230118144624242](.\images\image-20230118144624242.png)
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118144556837.png" alt="image-20230118144556837" style="zoom:80%;" />
+<img src=".\images\image-20230118144556837.png" alt="image-20230118144556837" style="zoom:80%;" />
 
 #### 第二步：量化销售指标
 
@@ -230,23 +230,23 @@ AI新零售是消费方式的革新，逆向牵引生产变革，掌握数据、
 
 品牌方对于SKU在货架陈列数量、摆放位置、摆放纯度等指标提出要求
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118144927585.png" alt="image-20230118144927585" style="zoom:67%;" />
+<img src=".\images\image-20230118144927585.png" alt="image-20230118144927585" style="zoom:67%;" />
 
 ##### 新品上架陈列稽查
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118204615292.png" alt="image-20230118204615292" style="zoom:50%;" />
+<img src=".\images\image-20230118204615292.png" alt="image-20230118204615292" style="zoom:50%;" />
 
 ##### 陈列激励
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118204646494.png" alt="image-20230118204646494" style="zoom:50%;" />
+<img src=".\images\image-20230118204646494.png" alt="image-20230118204646494" style="zoom:50%;" />
 
 #### 第三步：设计基于深度学习的AI流水线方案
 
 货架商品检测，先检测出每一个item的位置信息Bbox，再根据训练的模型进行SKU分类
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118204820816.png" alt="image-20230118204820816" style="zoom:50%;" />
+<img src=".\images\image-20230118204820816.png" alt="image-20230118204820816" style="zoom:50%;" />
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118205005025.png" alt="image-20230118205005025" style="zoom:50%;" />
+<img src=".\images\image-20230118205005025.png" alt="image-20230118205005025" style="zoom:50%;" />
 
 但此处存在很多难点，例如细分品类无法通过图形进行分辨（如不同口味），需要添加一层细分的分类器；例如规格信息（如净含量等）肉眼都无法识别，需要结合标签具体信息（物体实际高度、宽度等）作为特征训练。
 
@@ -254,15 +254,15 @@ AI新零售是消费方式的革新，逆向牵引生产变革，掌握数据、
 
 showcase
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118205503068.png" alt="image-20230118205503068" style="zoom:50%;" />
+<img src=".\images\image-20230118205503068.png" alt="image-20230118205503068" style="zoom:50%;" />
 
 ##### 通用物品识别平台架构
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118205550944.png" alt="image-20230118205550944" style="zoom:50%;" />
+<img src=".\images\image-20230118205550944.png" alt="image-20230118205550944" style="zoom:50%;" />
 
 ### 商品识别AI+业务流水线
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230118205739376.png" alt="image-20230118205739376" style="zoom: 50%;" />
+<img src=".\images\image-20230118205739376.png" alt="image-20230118205739376" style="zoom: 50%;" />
 
 
 
@@ -276,7 +276,7 @@ showcase
 
 ##### Ground Truth/Bounding Box
 
-![image-20230119144450032](C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119144450032.png)
+![image-20230119144450032](.\images\image-20230119144450032.png)
 
 Ground Truth：人对数据集标注的框
 
@@ -284,11 +284,11 @@ Bounding Box：模型预测的框
 
 ##### 评估标准：IoU（Intersection over Union）
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119144727929.png" alt="image-20230119144727929" style="zoom: 67%;" />
+<img src=".\images\image-20230119144727929.png" alt="image-20230119144727929" style="zoom: 67%;" />
 
 ##### 评估标准：准确率和召回率
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119144928479.png" alt="image-20230119144928479" style="zoom:80%;" />
+<img src=".\images\image-20230119144928479.png" alt="image-20230119144928479" style="zoom:80%;" />
 
 - TP：预测框识别正确的数量
 - FP：预测框没有识别到的正确物体的数量
@@ -302,13 +302,13 @@ TP+FP是Ground Truth，TP+FN是图中预测框的个数
 
 实际上准确率和召回率是存在一定矛盾的，准确率导向的预测相对谨慎，漏判的情况就会多；召回率导向的预测相对宽松，容易错判。为了用一个指标衡量两者的好坏，就有了AP的概念。
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119145956150.png" alt="image-20230119145956150" style="zoom:67%;" />
+<img src=".\images\image-20230119145956150.png" alt="image-20230119145956150" style="zoom:67%;" />
 
 假设检测的可能物体有多个类别，则mAP是所有类别的AP的平均值
 
 #### 目标检测发展
 
-![image-20230119150138788](C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119150138788.png)
+![image-20230119150138788](.\images\image-20230119150138788.png)
 
 2012年是一个分水岭，深度学习取代了经验主义的特征工程（根据图片特性设置滤波器）；有两种发展方向，分别是两阶段检测和一阶段检测。落地到工业界的是比较先进的YOLOv3和Retina-Net，各自有合适的适用场景。
 
@@ -324,7 +324,7 @@ Retina-Net解决了样本不平衡、类不平衡的问题，多尺度FeatureMap
 
 ##### Slow R-CNN
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119151447263.png" alt="image-20230119151447263" style="zoom:50%;" />
+<img src=".\images\image-20230119151447263.png" alt="image-20230119151447263" style="zoom:50%;" />
 
 过程：
 
@@ -342,7 +342,7 @@ Retina-Net解决了样本不平衡、类不平衡的问题，多尺度FeatureMap
 
 ##### Fast R-CNN
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119152044213.png" alt="image-20230119152044213" style="zoom: 50%;" />
+<img src=".\images\image-20230119152044213.png" alt="image-20230119152044213" style="zoom: 50%;" />
 
 比较：相比前一代增加了Bbox框的回归任务，引入了RoI Pooling layer、改进了存盘部分
 
@@ -350,13 +350,13 @@ Retina-Net解决了样本不平衡、类不平衡的问题，多尺度FeatureMap
 
 表现：可以达到几秒钟检测一张图片
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119152340200.png" alt="image-20230119152340200" style="zoom: 67%;" />
+<img src=".\images\image-20230119152340200.png" alt="image-20230119152340200" style="zoom: 67%;" />
 
 
 
 ##### Faster R-CNN
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119152801592.png" alt="image-20230119152801592" style="zoom:50%;" />
+<img src=".\images\image-20230119152801592.png" alt="image-20230119152801592" style="zoom:50%;" />
 
 对比：引入Region Proposal Network取代Selective Search、同时引入Anchor作为不同尺寸图片的适配（在后来的YOLO也有用到）
 
@@ -366,11 +366,11 @@ Retina-Net解决了样本不平衡、类不平衡的问题，多尺度FeatureMap
 
 ##### YOLOv1：首个深度学习的一阶段检测器
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119153244939.png" alt="image-20230119153244939" style="zoom: 50%;" />
+<img src=".\images\image-20230119153244939.png" alt="image-20230119153244939" style="zoom: 50%;" />
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119153337391.png" alt="image-20230119153337391" style="zoom:50%;" />
+<img src=".\images\image-20230119153337391.png" alt="image-20230119153337391" style="zoom:50%;" />
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119153400207.png" alt="image-20230119153400207" style="zoom:50%;" />
+<img src=".\images\image-20230119153400207.png" alt="image-20230119153400207" style="zoom:50%;" />
 
 参照了GoogleNet的网络结构
 
@@ -392,19 +392,19 @@ Retina-Net解决了样本不平衡、类不平衡的问题，多尺度FeatureMap
 
 各方面的提升
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119160615602.png" alt="image-20230119160615602" style="zoom: 50%;" />
+<img src=".\images\image-20230119160615602.png" alt="image-20230119160615602" style="zoom: 50%;" />
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119160704566.png" alt="image-20230119160704566" style="zoom: 50%;" />
+<img src=".\images\image-20230119160704566.png" alt="image-20230119160704566" style="zoom: 50%;" />
 
 优化后的网络结构
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119160811579.png" alt="image-20230119160811579" style="zoom:50%;" />
+<img src=".\images\image-20230119160811579.png" alt="image-20230119160811579" style="zoom:50%;" />
 
 
 
 #### RCNN与YOLO系列的比较
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119160911372.png" alt="image-20230119160911372" style="zoom:50%;" />
+<img src=".\images\image-20230119160911372.png" alt="image-20230119160911372" style="zoom:50%;" />
 
 可以见到YOLO的速度虽然快，但准确率不如RCNN系列，因为没有了region proposal的检测算法，为了兼具快、准两个优点，我们需要找到准确率不如two-stage的根本原因：样本类别不均衡（正负样本不平衡），也就是一张图的candidate location太多，负样本占总的loss的大部分，而且多是容易分类的。
 
@@ -414,19 +414,19 @@ Retina-Net中的Focal Loss这个函数可以通过减少易分类样本的权重
 
 Focal Loss本质上是交叉熵损失函数CE的变体，原始的交叉熵对于每一个样本的权重是一样的
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119161243981.png" alt="image-20230119161243981" style="zoom:50%;" />
+<img src=".\images\image-20230119161243981.png" alt="image-20230119161243981" style="zoom:50%;" />
 
 首先引入超参数αt，可以通过设定αt的值来控制正负样本对总的loss的共享权重。αt取比较小的值来降低负样本（多的那类样本）的权重，反之可以降低正样本的权重
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119163624974.png" alt="image-20230119163624974" style="zoom: 67%;" />
+<img src=".\images\image-20230119163624974.png" alt="image-20230119163624974" style="zoom: 67%;" />
 
 但还无法解决分类难易程度的权重，于是有了Focal Loss的完全体：
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119163928484.png" alt="image-20230119163928484" style="zoom:80%;" />
+<img src=".\images\image-20230119163928484.png" alt="image-20230119163928484" style="zoom:80%;" />
 
 其中超参数γ也称作focusing parameter，加上这个调制因子目的是通过减少易分类样本的权重，从而使得模型在训练时更专注于难分类的样本
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119161234078.png" alt="image-20230119161234078" style="zoom: 50%;" />
+<img src=".\images\image-20230119161234078.png" alt="image-20230119161234078" style="zoom: 50%;" />
 
 横坐标是pt，即正样本的概率
 
@@ -442,27 +442,27 @@ Focal Loss本质上是交叉熵损失函数CE的变体，原始的交叉熵对�
 
 为了同时达到易于调整正负样本的权重、难易分类样本的权重，采用如下公式：
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119165624292.png" alt="image-20230119165624292" style="zoom:67%;" />
+<img src=".\images\image-20230119165624292.png" alt="image-20230119165624292" style="zoom:67%;" />
 
 #### RetinaNet的介绍与成果
 
 结构上采用的是Resnet+FPN（feature pyramid net）作为backbone，多规格的卷积特征金字塔每一层都有classification和regression of boxes两路subnet
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119170449254.png" alt="image-20230119170449254" style="zoom: 50%;" />
+<img src=".\images\image-20230119170449254.png" alt="image-20230119170449254" style="zoom: 50%;" />
 
 RetinaNet训练成果：
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119165757320.png" alt="image-20230119165757320" style="zoom: 50%;" />
+<img src=".\images\image-20230119165757320.png" alt="image-20230119165757320" style="zoom: 50%;" />
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119170918263.png" alt="image-20230119170918263" style="zoom:50%;" />
+<img src=".\images\image-20230119170918263.png" alt="image-20230119170918263" style="zoom:50%;" />
 
 #### YOLOv3：小目标识别大提升
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119171706023.png" alt="image-20230119171706023" style="zoom:33%;" />
+<img src=".\images\image-20230119171706023.png" alt="image-20230119171706023" style="zoom:33%;" />
 
 关于选择YOLOv3还是RetinaNet需要考虑的因素：
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119171804206.png" alt="image-20230119171804206" style="zoom:50%;" />
+<img src=".\images\image-20230119171804206.png" alt="image-20230119171804206" style="zoom:50%;" />
 
 ### 应用
 
@@ -470,4 +470,4 @@ RetinaNet训练成果：
 
 labelImg的常用快捷键
 
-<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230119201020894.png" alt="image-20230119201020894" style="zoom: 67%;" />
+<img src=".\images\image-20230119201020894.png" alt="image-20230119201020894" style="zoom: 67%;" />
