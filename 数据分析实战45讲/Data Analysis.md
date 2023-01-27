@@ -405,6 +405,167 @@ print(df.log[:, "XX"]) # Series类型
 print(df.iloc[1:3,[2,3]]) # 注意：切片位置从0开始算左闭右开，方括号两边闭
 ```
 
-## 数据需要清洗的情况
+## 数据清洗理论
 
-TODO
+### 什么是整齐的数据
+
+每一行代表一个观测值，每一列代表一个变量，每一个表格代表一个观测单元
+
+### 混乱数据的特点
+
+1. 列名是值而不是变量
+2. 多个变量存储在一列中
+3. 变量既存储在列中，也存储在行中
+4. 多种类型的观测单元存储在一个表中
+5. 单个观测单元存储在多个表中
+
+### 第一类问题：列名是值而不是变量
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230127154335467.png" alt="image-20230127154335467" style="zoom: 67%;" />
+
+上述数据属于**宽数据**，可以在较小的空间内存储非常多的信息，但数据分析师需要的是**长数据**，需要改成一列表示范围，一列是具体的值。
+
+```python
+pd.melt(df, id_vars='religion', var_name='income', value_name='count')
+
+"""
+Parameters:
+id_vars: 指定哪些列不需要改变
+value_vars: 指定哪些列需要分解
+var_name: 在分解数据框可以改变默认的列名
+value_name: 分解数据后可以重命名值列
+"""
+```
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230127155558738.png" alt="image-20230127155558738" style="zoom:67%;" />
+
+### 第二类问题：多个变量存储在一列中
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230127173204509.png" alt="image-20230127173204509" style="zoom:80%;" />
+
+如上图，病例数、死亡数和国家连在一起，我们需要分离出这些变量
+
+```python
+# 分解数据
+ebola_long = pd.melt(ebola, id_vars=['Date', 'Day'])
+```
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230127173455407.png" alt="image-20230127173455407" style="zoom:67%;" />
+
+#### 方法1
+
+```python
+# 对variable列进行字符串解析成列表
+variable_split = ebola_long.variable.str.split('_')
+status_value = variable_split.str.get(0)
+country_value = variable_split.str.get(1)
+ebola_long['status'] = status_value
+ebola_long['country'] = country_value
+```
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230127174218944.png" alt="image-20230127174218944" style="zoom:67%;" />
+
+#### 方法2
+
+```python
+# 对variable列进行字符串解析成DataFrame
+variable_split = ebola_long.variable.str.split('_', expand=True)
+# 合并两个数据框的内容
+ebola_parsed = pd.concat([ebola_long, variable_split], axis=1)
+```
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230127174443321.png" alt="image-20230127174443321" style="zoom:67%;" />
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230127175040382.png" alt="image-20230127175040382" style="zoom:80%;" />
+
+#### 方法3
+
+```python
+# 合并两个列表zip
+variable_split = ebola_long.variable.str.split('_')
+# 将序列拆开得到两列，一次性添加到原DataFrame中
+ebola_long['status_zip'], ebola_long['country_zip'] = zip(*variable_split)
+```
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230127175736893.png" alt="image-20230127175736893" style="zoom:67%;" />
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230127180002222.png" alt="image-20230127180002222" style="zoom:67%;" />
+
+### 第三类问题：变量既存储在列中，也存储在行中
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230127180140877.png" alt="image-20230127180140877" style="zoom:67%;" />
+
+如上图，element列保存的也是变量，即最大值和最小值
+
+```python
+# 获取月中的某天并分解它
+weather_melt = pd.melt(weather, id_vars=['id', 'year', 'month', 'element'], var_name='day', value_name='temp')
+
+```
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230127204536172.png" alt="image-20230127204536172" style="zoom:67%;" />
+
+反向操作melt命令将使用数据透视表，可以用于获取某列以及获取该列的每个独立值，并将其转换成单独的一列
+
+在这里我们获取element列并把两个变量填充到图表的列上
+
+```python
+weather_tidy = weather_melt.pivot_table(index=['id', 'year', 'month', 'day'], columns='element', values='temp')
+
+"""
+pd.pivot_table()
+Parameters:
+index: 指定哪些列不需要改变
+columns: 指定哪些列撤销melt命令
+values: 告诉函数用什么值来填充单元格
+"""
+```
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230127210208897.png" alt="image-20230127210208897" style="zoom:67%;" />
+
+```python
+weather_tidy_flat = weather_tidy.reset_index()
+```
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230127210558389.png" alt="image-20230127210558389" style="zoom:67%;" />
+
+遇到第三类问题，首先需要对其中的某些列进行分解，然后对其中的某一列做数据透视表，最后为了得到一个标准的矩形数据框，要重新设置所有的索引。
+
+### 第四类问题：多种类型的观测单元存储在一个表中
+
+当数据集中有许多重复的信息时就是数据规范化问题，在行政类、教育类数据集中常会遇到这样的问题
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230127211054393.png" alt="image-20230127211054393" style="zoom:67%;" />
+
+如上图，year/artist/track/time/date.entered都是曲目信息，week/rating是评分信息，需要分解成两个数据框billboard_songs和billboard_ratings
+
+```python
+billboard_songs = billboard_long[['year', 'artist', 'track', 'time']]
+billboard_songs = billboard_songs.drop_duplicates() # 去掉了评分信息后很多行都是重复的
+
+# 为每一首歌分配一个唯一标识
+billboard_songs['id'] = range(len(billboard_songs))
+
+# 与原数据集连接后再去子集
+billboard_ratings = billboard_long.merge(billboard_songs, on=['year', 'artist', 'track', 'time'])
+billboard_ratings = billboard_ratings[['id', 'date.entered', 'week', 'rating']]
+```
+
+### 第五类问题：单个观测单元存储在多个表中
+
+```python
+# 需要同时载入多个文件
+import glob
+concat_files = glob.glob('../data/concat*')
+
+# 得到数据框的列表
+list_concat_df = []
+for csv_filename in concat_files:
+    df = pd.read_csv(csv_filename)
+    list_concat_df.append(df)
+    
+concat_loop = pd.concat(list_concat_df)
+
+```
+
+<img src="C:\Users\Lenvov\AppData\Roaming\Typora\typora-user-images\image-20230127215142717.png" alt="image-20230127215142717" style="zoom:67%;" />
